@@ -15,6 +15,9 @@ public class App extends Application {
         final VBox mainPane = new VBox();
         final Counter counter = new Counter();
         // TODO aggiungere gli elementi come descritto da readme
+        final button buttonIncrement = new button;
+        final button buttonDecrement = new button;
+        
         primaryStage.setScene(new Scene(mainPane));
         primaryStage.show();
     }
