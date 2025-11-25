@@ -19,6 +19,6 @@ public class Counter {
     }
 
     public IntegerProperty counterProperty() {
-        return this.value.get();
+        return this.value;
     }
 }

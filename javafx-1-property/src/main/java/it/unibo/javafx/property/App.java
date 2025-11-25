@@ -14,10 +14,37 @@ public class App extends Application {
         primaryStage.setTitle("Controls Exercise!");
         final VBox mainPane = new VBox();
         final Counter counter = new Counter();
-        // TODO aggiungere gli elementi come descritto da readme
-        final button buttonIncrement = new button;
-        final button buttonDecrement = new button;
+
+        final Label counterLabel = new Label("0");
+        //counterLabel.setStyle("-fx-font-size: 24pt; -fx-padding: 10px;"); 
+
+        final Button buttonIncrement = new Button("Incrementa");
+        final Button buttonDecrement = new Button("Decrementa");
+
+        counterLabel.textProperty().bind(counter.counterProperty().asString());
+
+        // Listener per l'incremento
+        buttonIncrement.setOnAction(e -> {
+            counter.increment();
+        });
+
+        // Listener per il decremento
+        buttonDecrement.setOnAction(e -> {
+            counter.decrement();
+        });
+
+        // HBox per tenere i due pulsanti sulla stessa riga
+        final HBox buttonBox = new HBox(10, buttonDecrement, buttonIncrement);
+        buttonBox.setStyle("-fx-alignment: center;"); // Centra i pulsanti
         
+        // Aggiungere gli elementi al pannello principale
+        mainPane.getChildren().addAll(counterLabel, buttonBox);
+        mainPane.setStyle("-fx-alignment: center; -fx-padding: 20px;");
+
+        buttonIncrement.setMinWidth(100);
+        buttonDecrement.setMinWidth(100);
+
+
         primaryStage.setScene(new Scene(mainPane));
         primaryStage.show();
     }

@@ -15,7 +15,7 @@ val javaFXModules = listOf(
     "graphics"
 )
 
-val supportedPlatforms = listOf("linux", "mac", "win") // All required for OOP
+val supportedPlatforms = listOf("linux", "mac-aarch64", "win") // All required for OOP
 
 dependencies {
     // Suppressions for SpotBugs
@@ -25,7 +25,7 @@ dependencies {
     // implementation("com.google.guava:guava:28.1-jre")
 
     // JavaFX: comment out if you do not need them
-    val javaFxVersion = 15
+    val javaFxVersion = 22
     for (platform in supportedPlatforms) {
         for (module in javaFXModules) {
             implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
